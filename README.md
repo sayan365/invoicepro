@@ -1,213 +1,81 @@
 # InvoicePro
 
-**InvoicePro** is a PHP/MySQL web application for managing clients and generating PDF invoices. It features a clean, responsive dashboard and full CRUD support for both clients and invoices.
-
----
-
-## 🔑 Key Features
-
-- **User Authentication**  
-
-  - Register, Login, Logout  
-
-- **Client Management** (`clients/` + root `index.php`)  
-
-  - Add, edit & delete clients  
-
-  - View client list on `index.php`  
-
-- **Invoice Management** (`invoices/`)  
-
-  - Create, edit & delete invoices  
-
-  - Generate professional PDF invoices via TCPDF  
-
-- **Backend Services** (`services/`)  
-
-  - Centralized PHP scripts for handling all CRUD operations on clients & invoices  
-
-- **Profile & Logo Uploads** (`uploads/`)  
-
-  - Users can update their profile & company logo; files are stored in `uploads/`  
-
-- **Dashboard** (`dashboard.php`)  
-
-  - At-a-glance view of total clients, outstanding invoices, recent activity, etc.
-
----
-
-## 🗂️ Project Structure
-
-├── clients/ # Client-side pages for managing clients
-
-│ ├── add-client.php
-
-│ ├── edit-client.php
-
-│ └── delete-client.php
-
-│
-
-├── invoices/ # Pages for invoice workflows
-
-│ ├── add-invoice.php
-
-│ ├── edit-invoice.php
-
-│ └── delete-invoice.php
-
-│
-
-├── services/ # PHP service scripts (CRUD logic)
-
-│ ├── client-service.php
-
-│ ├── invoice-service.php
-
-│ └── ...
-
-│
-
-├── includes/ # Shared components
-
-│ ├── config.php # Database connection
-
-│ └── sidebar.php # Dashboard sidebar UI
-
-│
-
-├── uploads/ # User-uploaded files (profile pics, logos)
-
-│ └── [all uploaded images]
-
-│
-
-├── tcpdf/ # TCPDF library for PDF generation
-
-│ └── ...
-
-│
-
-├── index.php # Entry: redirects/logins & lists clients
-
-├── register.php # User registration
-
-├── login.php # User login
-
-├── logout.php # Session logout
-
-├── profile.php # Profile edit + logo upload
-
-├── dashboard.php # Main dashboard view
-
-└── README.md # ← you are here!
-
-yaml
-
-Copy
-
-Edit
-
----
-
-## 🚀 Getting Started
-
-1\. **Clone the repo**  
-
-   ```bash
-
-   git clone https://github.com/sayan365/invoicepro.git
-
-   cd invoicepro
-
-Create & import database
-
-Create a MySQL database named invoicepro.
-
-Import any provided schema (e.g. schema.sql) or run the CREATE TABLE scripts in the clients/ and invoices/ folders.
-
-Configure DB connection
-
-Edit includes/config.php with your credentials:
-
-php
-
-Copy
-
-Edit
-
-define('DB_SERVER',   'localhost');
-
-define('DB_USERNAME', 'your_username');
-
-define('DB_PASSWORD', 'your_password');
-
-define('DB_NAME',     'invoicepro');
-
-Install TCPDF
-
-The TCPDF library is already included in tcpdf/. No extra setup needed.
-
-Set permissions
-
-Ensure uploads/ is writable by your web server:
-
-bash
-
-Copy
-
-Edit
-
-chmod -R 755 uploads/
-
-Run on your local server
-
-Place the project folder under your web root (e.g. htdocs or www) and browse to:
-
-arduino
-
-Copy
-
-Edit
-
-http://localhost/invoicepro/
-
-🎯 Usage Workflow
-
-Register a new account
-
-Login to access the dashboard
-
-Manage Clients
-
-On index.php, view all clients
-
-Use "Add Client" / "Edit" / "Delete" actions
-
-Generate Invoices
-
-Go to the Invoices section
-
-Create an invoice linked to a client, then download the PDF
-
-Profile Settings
-
-Update your personal/company info & upload a logo on profile.php
-
-🤝 Contributing
-
-Fork the repository
-
-Create a feature branch (git checkout -b feature/my-feature)
-
-Commit your changes (git commit -m "Add awesome feature")
-
-Push to your branch (git push origin feature/my-feature)
-
-Open a pull request
-
-📄 License
+**InvoicePro** is a web-based invoicing system built with PHP and MySQL. It allows businesses and freelancers to manage clients, generate professional invoices in PDF format, and handle related data efficiently through a clean and responsive dashboard.
+
+## Features
+
+* **User Authentication** (Register/Login/Logout)
+* **Client Management** (Add, Edit, Delete Clients)
+* **Invoice Management** (Create, Edit, Delete Invoices)
+* **PDF Invoice Generation** using TCPDF
+* **Profile Management** with logo upload
+* **Secure File Upload Handling**
+* **Responsive Dashboard** for an organized view of all data
+
+## Technologies Used
+
+* **Backend**: PHP
+* **Database**: MySQL
+* **Frontend**: HTML, CSS, JavaScript
+* **PDF Generation**: TCPDF
+
+## Folder Structure
+
+* `clients/`: Manages client-related functionality (add/edit/delete clients)
+* `invoices/`: Manages invoice-related operations
+* `services/`: Handles backend logic for clients and invoices (edit, delete, etc.)
+* `includes/`: Contains database connection (`config.php`) and common UI components like the sidebar
+* `uploads/`: Stores user-uploaded files (e.g., profile images, company logos)
+* `tcpdf/`: External library used for generating PDF invoices
+
+## Key Files
+
+* `index.php`: Home page, primarily focused on client management
+* `dashboard.php`: Displays an overview of clients and invoices
+* `register.php`, `login.php`, `logout.php`: Handle user authentication
+* `profile.php`: Allows users to update their profile information and logo
+
+## Setup Instructions
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/sayan365/invoicepro.git
+   ```
+
+2. **Configure the Database**
+   * Create a MySQL database named `invoicepro`
+   * Import any `.sql` file provided (or set up the schema manually if not present)
+
+3. **Update Database Credentials**
+   * In `includes/config.php`, update the following:
+   ```php
+   define('DB_SERVER', 'localhost');
+   define('DB_USERNAME', 'your_db_username');
+   define('DB_PASSWORD', 'your_db_password');
+   define('DB_NAME', 'invoicepro');
+   ```
+
+4. **Run the Application**
+   * Host the project on a local server (e.g., XAMPP, WAMP)
+   * Visit `http://localhost/invoicepro` in your browser
+
+## Usage
+
+1. **Register** as a new user
+2. **Login** to access your dashboard
+3. **Add Clients** via the index page
+4. **Create Invoices** linked to clients
+5. **Download Invoices** as PDF files
+6. **Update Your Profile** and upload your company logo
+
+## Screenshots
+
+(You can add screenshots of the dashboard, client page, invoice generation, etc.)
+
+## License
 
 This project is licensed under the MIT License.
 
-Built with ❤️ by @sayan365
+## Author
+
+* [@sayan365](https://github.com/sayan365)

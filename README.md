@@ -24,7 +24,7 @@
 * `clients/`: Manages client-related functionality (add/edit/delete clients)
 * `invoices/`: Manages invoice-related operations
 * `services/`: Handles backend logic for clients and invoices (edit, delete, etc.)
-* `includes/`: Contains database connection (`config.php`) and common UI components like the sidebar
+* `includes/`: Contains database connection (`db.php`) and common UI components like the sidebar
 * `uploads/`: Stores user-uploaded files (e.g., profile images, company logos)
 * `tcpdf/`: External library used for generating PDF invoices
 
@@ -67,10 +67,6 @@
 4. **Create Invoices** linked to clients
 5. **Download Invoices** as PDF files
 6. **Update Your Profile** and upload your company logo
-
-## Screenshots
-
-(You can add screenshots of the dashboard, client page, invoice generation, etc.)
 
 ## License
 
